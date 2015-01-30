@@ -18,7 +18,7 @@ always_send_full_costmap: true
 
 plugins: 
     # Obstacles
-    - {name: ed_occupancy_grid,                 type: "costmap_2d::StaticLayer"}
+    - {name: ed_occupancy_grid,                 type: "costmap_2d::EdLayer"}
     - {name: recent_obstacles,                  type: "costmap_2d::ObstacleLayer"}
 
     # Obstacle inflation
