@@ -56,8 +56,8 @@ recent_obstacles:
 # Eliminate small occlusions by inflating the obstacles with a radius of obstacles that can popup from unknown space
 eliminate_small_occlusions:
     use_footprint: false
-    target_cell_value: 254
-    dilation_cell_value: 253
+    target_cell_value: 201 #254
+    dilation_cell_value: 200 #253
     dilation_radius: 0.2 # radius of moving obstacles
     inflation_radius: 0.2 # radius of moving obstacles
 
@@ -74,15 +74,15 @@ unknown_free_space:
 free_space_inflation:
     use_footprint: false
     target_cell_value: 255
-    dilation_cell_value: 170
+    dilation_cell_value: 130 #170
     dilation_radius: 1.1
     inflation_radius: 1.1
 
 # Workspace to configuration space 
 configuration_space:
     use_footprint: false
-    target_cell_value: 254
-    dilation_cell_value: 253
+    target_cell_value: 201 #254
+    dilation_cell_value: 200 #253
     dilation_radius: 0.35 # inscribed radius
     inflation_radius: 1.0 # optimization
     cost_scaling_factor: 5.0
