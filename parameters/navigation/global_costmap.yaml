@@ -18,7 +18,10 @@ plugins:
     - {name: ed_occupancy_grid,                 type: "costmap_2d::EdLayer"}
     - {name: recent_obstacles,                  type: "costmap_2d::ObstacleLayer"}
     - {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
-    - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_human,         type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_door,          type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_unknown,       type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_wall,          type: "costmap_2d::InflationLayer"}
 
 # Ed World model layer
 ed_occupancy_grid:
@@ -32,9 +35,30 @@ recent_obstacles:
     torso_laser:  {data_type: LaserScan, sensor_frame: /amigo/torso_laser, topic: /amigo/torso_laser, observation_persistence: 0.0, inf_is_valid: true, obstacle_range: 20.0, marking: true, clearing: false, ray_trace_range: 20.0}
 
 # Workspace to configuration space 
-configuration_space:
+configuration_space_human:
     use_footprint: false
-    target_cell_value: 201 #254
+    target_cell_value: 254 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.37 # 2cm margin
+    inflation_radius: 0.6 
+    
+configuration_space_door:
+    use_footprint: false
+    target_cell_value: 240 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.37 # 2cm margin
+    inflation_radius: 0.6 
+    
+configuration_space_unknown:
+    use_footprint: false
+    target_cell_value: 225 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.37 # 2cm margin
+    inflation_radius: 0.6 
+    
+configuration_space_wall:
+    use_footprint: false
+    target_cell_value: 202 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
     inflation_radius: 0.6 

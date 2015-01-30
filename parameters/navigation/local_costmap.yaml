@@ -34,7 +34,10 @@ plugins:
     - {name: robot_footprint,                   type: "costmap_2d::FootprintLayer"}
 
     # Obstacle inflation
-    - {name: configuration_space,               type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_human,         type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_door,          type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_unknown,       type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_wall,          type: "costmap_2d::InflationLayer"}
 
 
 # LAYER CONFIGURATION
@@ -79,10 +82,34 @@ free_space_inflation:
     inflation_radius: 1.1
 
 # Workspace to configuration space 
-configuration_space:
+configuration_space_human:
     use_footprint: false
-    target_cell_value: 201 #254
+    target_cell_value: 254 #254
     dilation_cell_value: 200 #253
-    dilation_radius: 0.35 # inscribed radius
-    inflation_radius: 1.0 # optimization
+    dilation_radius: 0.35
+    inflation_radius: 1.0
+    cost_scaling_factor: 5.0
+    
+configuration_space_door:
+    use_footprint: false
+    target_cell_value: 240 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.35
+    inflation_radius: 0.6
+    cost_scaling_factor: 1.0
+    
+configuration_space_unknown:
+    use_footprint: false
+    target_cell_value: 225 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.35
+    inflation_radius: 0.6
+    cost_scaling_factor: 5.0
+    
+configuration_space_wall:
+    use_footprint: false
+    target_cell_value: 202 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.35
+    inflation_radius: 0.6
     cost_scaling_factor: 5.0
