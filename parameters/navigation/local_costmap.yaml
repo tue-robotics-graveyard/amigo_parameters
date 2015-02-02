@@ -38,6 +38,7 @@ plugins:
     - {name: configuration_space_door,          type: "costmap_2d::InflationLayer"}
     - {name: configuration_space_unknown,       type: "costmap_2d::InflationLayer"}
     - {name: configuration_space_wall,          type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_recent,        type: "costmap_2d::InflationLayer"}
 
 
 # LAYER CONFIGURATION
@@ -49,6 +50,7 @@ ed_occupancy_grid:
     use_maximum: true
     lethal_cost_threshold: 99
 
+# Recent obstacles
 recent_obstacles:
     occupied_to_default_time: 2.0
     observation_sources: base_laser torso_laser top_kinect
@@ -66,7 +68,7 @@ eliminate_small_occlusions:
 
 # Free Space modeling
 unknown_free_space:
-    combination_method: 1
+    combination_method: 1 # (0: updateWithOverWrite, else: updateWithMax)
     track_unknown_space: true
     free_to_default_time: 30.0
     observation_sources: base_laser
@@ -109,6 +111,14 @@ configuration_space_unknown:
 configuration_space_wall:
     use_footprint: false
     target_cell_value: 202 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.35
+    inflation_radius: 0.6
+    cost_scaling_factor: 5.0
+    
+configuration_space_recent:
+    use_footprint: false
+    target_cell_value: 201 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.35
     inflation_radius: 0.6

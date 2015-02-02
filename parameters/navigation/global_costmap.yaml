@@ -22,6 +22,7 @@ plugins:
     - {name: configuration_space_door,          type: "costmap_2d::InflationLayer"}
     - {name: configuration_space_unknown,       type: "costmap_2d::InflationLayer"}
     - {name: configuration_space_wall,          type: "costmap_2d::InflationLayer"}
+    - {name: configuration_space_recent,        type: "costmap_2d::InflationLayer"}
 
 # Ed World model layer
 ed_occupancy_grid:
@@ -61,4 +62,11 @@ configuration_space_wall:
     target_cell_value: 202 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
-    inflation_radius: 0.6 
+    inflation_radius: 0.6
+    
+configuration_space_recent:
+    use_footprint: false
+    target_cell_value: 201 #254
+    dilation_cell_value: 200 #253
+    dilation_radius: 0.37 # 2cm margin
+    inflation_radius: 0.6
