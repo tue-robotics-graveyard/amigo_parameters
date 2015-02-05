@@ -41,32 +41,37 @@ configuration_space_human:
     target_cell_value: 254 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
-    inflation_radius: 0.6 
+    inflation_radius: 1.0
+    cost_scaling_factor: 2.5
     
 configuration_space_door:
     use_footprint: false
     target_cell_value: 240 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
-    inflation_radius: 0.6 
+    inflation_radius: 1.0
+    cost_scaling_factor: 2.5
     
 configuration_space_unknown:
     use_footprint: false
     target_cell_value: 225 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
-    inflation_radius: 0.6 
+    inflation_radius: 1.0
+    cost_scaling_factor: 2.5
     
 configuration_space_wall:
     use_footprint: false
     target_cell_value: 202 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
-    inflation_radius: 0.6
+    inflation_radius: 1.0
+    cost_scaling_factor: 5.0
     
 configuration_space_recent:
     use_footprint: false
     target_cell_value: 201 #254
     dilation_cell_value: 200 #253
     dilation_radius: 0.37 # 2cm margin
-    inflation_radius: 0.6
+    inflation_radius: 1.0
+    cost_scaling_factor: 2.5
